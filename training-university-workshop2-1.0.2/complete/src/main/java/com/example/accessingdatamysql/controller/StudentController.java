@@ -29,14 +29,14 @@ import com.example.accessingdatamysql.service.StudentService;
 public class StudentController {
 
 
-	@Autowired    
+	@Autowired
 	private StudentService studentService;
 
 
 	/*
 	 * @return list all students in a JSONArray with JSONObjects transfermed from Student models
 	 */
-	// @RequestMapping(path="/students", method=RequestMethod.GET) 
+	// @RequestMapping(path="/students", method=RequestMethod.GET)
 	@GetMapping(path = "/students") // Compliant
 	public @ResponseBody ResponseEntity<Object> getAllStudents() {
 
@@ -46,7 +46,7 @@ public class StudentController {
 	}
 
 	/*
-	 * @param student - the Student model with name and optional email  
+	 * @param student - the Student model with name and optional email
 	 * @return a JSONObject with description "SAVED ID: <student id>!" and the saved Student model.
 	 *         The Student model contains four fields as follows:
 	 * <ul>
@@ -59,19 +59,19 @@ public class StudentController {
 	/*
 	 * @return the number of students
 	 */
-	// @RequestMapping(path="/students", method=RequestMethod.POST) 
+	// @RequestMapping(path="/students", method=RequestMethod.POST)
 	@PostMapping(path = "/students") // Compliant
 	public @ResponseBody ResponseEntity<Object> addStudents(@RequestBody Student student) {
 
 		Student result = studentService.save(student);
 
 		HashMap<String, Object> map = new HashMap<>();
-		map.put("description_2", String.format("SAVED ID: %s!", result.getId()));
+		map.put("description_for_me", String.format("SAVED ID: %s!", result.getId()));
 		map.put("student", result);
 		return ResponseEntity.status(HttpStatus.OK).body(map);
 	}
 
-	// @RequestMapping(path="/students/count", method=RequestMethod.GET) 
+	// @RequestMapping(path="/students/count", method=RequestMethod.GET)
 	@GetMapping(path = "/students/count") // Compliant
 	public @ResponseBody ResponseEntity<Object> countStudents(@RequestParam(name="isActive", defaultValue="true") boolean isActive) {
 
