@@ -75,7 +75,7 @@ public class StudentControllerTests {
 		JSONArray jsonArray = new JSONArray(content);
 
 		assertEquals(2, jsonArray.length());
-		
+
 		JSONObject jsonObject = jsonArray.getJSONObject(0);
 		assertEquals(123, jsonObject.getInt("id"));
 		assertEquals("name123", jsonObject.getString("name"));
@@ -90,7 +90,7 @@ public class StudentControllerTests {
 							{"name":"name123", "email":"name123@gmail.com"}""";
 
 		StudentEntity dummyStudentEntity = new StudentEntity(123, "name123", 1);                                         // 0: Expired, 1: Active (Default)
-		dummyStudentEntity.setEmail("name123@gmail.com");							
+		dummyStudentEntity.setEmail("name123@gmail.com");
 		when(studentRepository.save(any())).thenReturn(dummyStudentEntity);
 
 		Student dummyStudent = new Student();
@@ -108,7 +108,7 @@ public class StudentControllerTests {
 
 		String content = result.getResponse().getContentAsString();
 		JSONObject jsonObject = new JSONObject(content);
-		assertTrue(jsonObject.getString("description_2").matches(".+ ID: [0-9]+!"));
+		assertTrue(jsonObject.getString("description_for_me").matches(".+ ID: [0-9]+!"));
 
 		JSONObject jsonUser = jsonObject.getJSONObject("student");
 		assertEquals(123, jsonUser.getInt("id"));
@@ -123,8 +123,8 @@ public class StudentControllerTests {
 
 		String jsonBody = """
 							{"name":"name123"}""";
-		
-		StudentEntity dummyStudentEntity = new StudentEntity(123, "name123", 0);    
+
+		StudentEntity dummyStudentEntity = new StudentEntity(123, "name123", 0);
 		when(studentRepository.save(any())).thenReturn(dummyStudentEntity);
 
 		Student dummyStudent = new Student();
