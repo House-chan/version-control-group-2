@@ -3,14 +3,14 @@ package com.example.accessingdatamysql.service.repo;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.example.accessingdatamysql.service.repo.entity.StudentEntity;
+import com.example.accessingdatamysql.service.repo.entity.CourseEntity;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
-public interface CourseRepository extends CrudRepository<StudentEntity, Integer> {
+public interface CourseRepository extends CrudRepository<CourseEntity, Integer> {
 
-    @Query("SELECT COUNT(u.id) FROM Course u WHERE u.state=?1")
-    public Integer countStudents(Integer state);
+    @Query("SELECT COUNT(u.id) FROM COURSES u")
+    public Integer countStudents();
 
 }

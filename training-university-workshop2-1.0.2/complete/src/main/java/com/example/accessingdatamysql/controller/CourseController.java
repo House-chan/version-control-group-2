@@ -24,7 +24,7 @@ import org.springframework.boot.*;
 
 import com.example.accessingdatamysql.model.Student;
 import com.example.accessingdatamysql.model.adminController;
-import com.example.accessingdatamysql.service.StudentService;
+import com.example.accessingdatamysql.service.CourseService;
 
 @Controller
 public class CourseController {
@@ -41,7 +41,7 @@ public class CourseController {
 	@GetMapping(path = "/courses") // Compliant
 	public @ResponseBody ResponseEntity<Object> getAllStudents() {
 
-		Iterable<Student> resultList = courseService.findAll();
+		Iterable<adminController> resultList = courseService.findAll();
 
 		return ResponseEntity.status(HttpStatus.OK).body(resultList);
 	}
@@ -62,9 +62,9 @@ public class CourseController {
 	 */
 	// @RequestMapping(path="/students", method=RequestMethod.POST)
 	@PostMapping(path = "/courses") // Compliant
-	public @ResponseBody ResponseEntity<Object> addStudents(@RequestBody adminController course) {
+	public @ResponseBody ResponseEntity<Object> addCourses(@RequestBody adminController course) {
 
-		Student result = courseService.save(course);
+		adminController result = courseService.save(course);
 
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("description_for_me", String.format("SAVED ID: %s!", result.getId()));

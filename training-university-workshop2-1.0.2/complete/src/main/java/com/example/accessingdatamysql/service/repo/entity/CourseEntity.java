@@ -13,16 +13,16 @@ import jakarta.persistence.Id;
 public class CourseEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID", updatable=false)
+    @Column(name="id", updatable=false)
     private int id;
 
-    @Column(name="NAME")
+    @Column(name="name")
     private String name;
 
-    @Column(name="CREDIT")
+    @Column(name="credit")
     private int credits;
 
-    @Column(name="MAXSEAT")
+    @Column(name="maxseat")
     private int maxseats;
 
 
