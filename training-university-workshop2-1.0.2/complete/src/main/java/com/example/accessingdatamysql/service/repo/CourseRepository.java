@@ -10,7 +10,7 @@ import com.example.accessingdatamysql.service.repo.entity.StudentEntity;
 
 public interface CourseRepository extends CrudRepository<StudentEntity, Integer> {
 
-    @Query("SELECT COUNT(u.id) FROM Course u WHERE u.state=?1")
+    @Query("SELECT COUNT(u.id) FROM COURSES u WHERE u.state=?1")
     public Integer countStudents(Integer state);
 
 }

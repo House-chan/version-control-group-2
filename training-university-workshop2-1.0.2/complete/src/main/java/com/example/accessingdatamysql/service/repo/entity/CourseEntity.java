@@ -25,6 +25,9 @@ public class CourseEntity {
     @Column(name="MAXSEAT")
     private int maxseats;
 
+    @Column(name="USEDSEAT")
+    private int usedseats;
+
 
     public CourseEntity(){
 
@@ -35,6 +38,7 @@ public class CourseEntity {
         this.name = name;
         this.credits = credits;
         this.maxseats = maxseats;
+        usedseats = 0;
     }
 
     public int getId(){
@@ -68,4 +72,13 @@ public class CourseEntity {
     public void setMaxSeat(int maxseats){
         this.maxseats = maxseats;
     }
+
+    public int getUsedSeat(){
+        return usedseats;
+    }
+
+    public void setUsedSeat(int usedseats){
+        this.usedseats = usedseats;
+    }
+
 }
