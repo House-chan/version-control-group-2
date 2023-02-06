@@ -25,4 +25,25 @@ public class adminController {
     public void setMax_seat(int max_seat){
         this.max_seat = max_seat;
     }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getCredit() {
+        return this.credit;
+    }
+
+    public int getMax_Seat() {
+        return this.max_seat;
+    }
+
+    @Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", credit=" + credit + ", Max_Seat=" + max_seat + "]";
+	}
 }
